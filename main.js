@@ -340,6 +340,7 @@ function newCurrenciesListItem(currency) {
 async function getCurrencies() {
     let result = await fetch(dataURL)
     let data = await result.json()
+    console.log(data)
     data.rates["EUR"] = 1;
     currencies = currencies.filter(currency => data.rates[currency.abbreviation]);
     currencies.forEach(currency => currency.rate = data.rates[currency.abbreviation])
